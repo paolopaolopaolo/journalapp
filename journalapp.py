@@ -34,9 +34,8 @@ def read_journal(db,username):
 	while item is not None and continuer=="":
 		item=cursor.fetchone()
 		try:
-			print "Day:%s\n" % item[0]
-			print "Time:%s\n" % item[1]
-			print "Entry:\n%s" % item[3]
+			print "\nDay:%s\tTime:%s" % (item[0],item[1])
+			print "\n%s" % item[3]
 		except TypeError:
 			cursor.close()
 			break
@@ -46,6 +45,7 @@ def read_journal(db,username):
 	read_or_write(db,username)
 
 def write_journal(db,username):
+	print "Begin writing!"
 	this_moment=str(dt.datetime.today())
 	this_indexed_moment=re.search(r"([\d]+-[\d]+-[\d]+) ([\d]+:[\d]+):",this_moment)
 	day=this_indexed_moment.group(1)
