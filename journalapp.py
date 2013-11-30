@@ -37,7 +37,6 @@ def read_journal(db,username):
 			print "\nDay:%s\tTime:%s" % (item[0],item[1])
 			print "\n%s" % item[3]
 		except TypeError:
-			cursor.close()
 			break
 		continuer=raw_input("")
 	cursor.close()
